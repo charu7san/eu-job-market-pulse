@@ -2,7 +2,6 @@
 
 An automated ETL pipeline and interactive dashboard visualizing the technology job market across Europe. Built with real-time data from the Adzuna API, this project tracks hiring trends, salary benchmarks, and skill demand in key EUR-zone markets.
 
-![Dashboard Preview](https://via.placeholder.com/1200x600?text=Premium+Job+Market+Dashboard+Preview) *<!-- Replace with a real screenshot of your dashboard -->*
 
 ## 🚀 Overview
 
