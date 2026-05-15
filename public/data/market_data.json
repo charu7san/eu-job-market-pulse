@@ -1,0 +1,940 @@
+{
+  "last_updated": "2026-05-15T15:10:32.778044Z",
+  "global_metrics": {
+    "total_listings": 54002,
+    "avg_eu_salary": 0
+  },
+  "countries": [
+    {
+      "code": "at",
+      "job_count": 1339,
+      "avg_salary": 0,
+      "remote_percentage": 18.45,
+      "top_cities": [
+        {
+          "name": "Wien, \u00d6sterreich",
+          "count": 407
+        },
+        {
+          "name": "Steiermark, \u00d6sterreich",
+          "count": 117
+        },
+        {
+          "name": "Ober\u00f6sterreich, \u00d6sterreich",
+          "count": 98
+        },
+        {
+          "name": "Salzburg, \u00d6sterreich",
+          "count": 95
+        },
+        {
+          "name": "Tirol, \u00d6sterreich",
+          "count": 89
+        },
+        {
+          "name": "K\u00e4rnten, \u00d6sterreich",
+          "count": 72
+        }
+      ],
+      "skills_breakdown": [
+        {
+          "skill": "Python",
+          "count": 120
+        },
+        {
+          "skill": "SQL",
+          "count": 69
+        },
+        {
+          "skill": "Power BI",
+          "count": 18
+        },
+        {
+          "skill": "Tableau",
+          "count": 4
+        },
+        {
+          "skill": "Spark",
+          "count": 18
+        },
+        {
+          "skill": "dbt",
+          "count": 2
+        },
+        {
+          "skill": "Airflow",
+          "count": 3
+        },
+        {
+          "skill": "Looker",
+          "count": 223
+        },
+        {
+          "skill": "Snowflake",
+          "count": 4
+        },
+        {
+          "skill": "Excel",
+          "count": 86
+        },
+        {
+          "skill": "Azure",
+          "count": 71
+        },
+        {
+          "skill": "AWS",
+          "count": 54
+        },
+        {
+          "skill": "React",
+          "count": 28
+        },
+        {
+          "skill": "TypeScript",
+          "count": 38
+        },
+        {
+          "skill": "Node.js",
+          "count": 7
+        },
+        {
+          "skill": "Java",
+          "count": 70
+        },
+        {
+          "skill": "Docker",
+          "count": 47
+        },
+        {
+          "skill": "Kubernetes",
+          "count": 38
+        },
+        {
+          "skill": "Linux",
+          "count": 62
+        },
+        {
+          "skill": "Git",
+          "count": 45
+        },
+        {
+          "skill": "JavaScript",
+          "count": 34
+        }
+      ]
+    },
+    {
+      "code": "be",
+      "job_count": 2771,
+      "avg_salary": 0,
+      "remote_percentage": 14.11,
+      "top_cities": [
+        {
+          "name": "Antwerpen (Provincie), Belgi\u00eb",
+          "count": 207
+        },
+        {
+          "name": "Vlaams-Brabant (Provincie), Belgi\u00eb",
+          "count": 201
+        },
+        {
+          "name": "Brussel (Regio), Belgi\u00eb",
+          "count": 193
+        },
+        {
+          "name": "Oost-Vlaanderen (Provincie), Belgi\u00eb",
+          "count": 81
+        },
+        {
+          "name": "West-Vlaanderen (Provincie), Belgi\u00eb",
+          "count": 38
+        },
+        {
+          "name": "Henegouwen (Provincie), Belgi\u00eb",
+          "count": 31
+        }
+      ],
+      "skills_breakdown": [
+        {
+          "skill": "Python",
+          "count": 260
+        },
+        {
+          "skill": "SQL",
+          "count": 199
+        },
+        {
+          "skill": "Power BI",
+          "count": 88
+        },
+        {
+          "skill": "Tableau",
+          "count": 39
+        },
+        {
+          "skill": "Spark",
+          "count": 41
+        },
+        {
+          "skill": "dbt",
+          "count": 12
+        },
+        {
+          "skill": "Airflow",
+          "count": 12
+        },
+        {
+          "skill": "Looker",
+          "count": 314
+        },
+        {
+          "skill": "Snowflake",
+          "count": 15
+        },
+        {
+          "skill": "Excel",
+          "count": 275
+        },
+        {
+          "skill": "Azure",
+          "count": 227
+        },
+        {
+          "skill": "AWS",
+          "count": 146
+        },
+        {
+          "skill": "React",
+          "count": 67
+        },
+        {
+          "skill": "TypeScript",
+          "count": 56
+        },
+        {
+          "skill": "Node.js",
+          "count": 28
+        },
+        {
+          "skill": "Java",
+          "count": 110
+        },
+        {
+          "skill": "Docker",
+          "count": 87
+        },
+        {
+          "skill": "Kubernetes",
+          "count": 100
+        },
+        {
+          "skill": "Linux",
+          "count": 117
+        },
+        {
+          "skill": "Git",
+          "count": 86
+        },
+        {
+          "skill": "JavaScript",
+          "count": 70
+        }
+      ]
+    },
+    {
+      "code": "de",
+      "job_count": 19773,
+      "avg_salary": 0,
+      "remote_percentage": 21.3,
+      "top_cities": [
+        {
+          "name": "Bayern, Deutschland",
+          "count": 3439
+        },
+        {
+          "name": "Berlin, Deutschland",
+          "count": 2438
+        },
+        {
+          "name": "Baden-W\u00fcrttemberg, Deutschland",
+          "count": 2215
+        },
+        {
+          "name": "Nordrhein-Westfalen, Deutschland",
+          "count": 1974
+        },
+        {
+          "name": "Hessen, Deutschland",
+          "count": 1738
+        },
+        {
+          "name": "Hamburg, Deutschland",
+          "count": 957
+        }
+      ],
+      "skills_breakdown": [
+        {
+          "skill": "Python",
+          "count": 1863
+        },
+        {
+          "skill": "SQL",
+          "count": 821
+        },
+        {
+          "skill": "Power BI",
+          "count": 288
+        },
+        {
+          "skill": "Tableau",
+          "count": 223
+        },
+        {
+          "skill": "Spark",
+          "count": 207
+        },
+        {
+          "skill": "dbt",
+          "count": 42
+        },
+        {
+          "skill": "Airflow",
+          "count": 51
+        },
+        {
+          "skill": "Looker",
+          "count": 2485
+        },
+        {
+          "skill": "Snowflake",
+          "count": 78
+        },
+        {
+          "skill": "Excel",
+          "count": 1876
+        },
+        {
+          "skill": "Azure",
+          "count": 941
+        },
+        {
+          "skill": "AWS",
+          "count": 1197
+        },
+        {
+          "skill": "React",
+          "count": 423
+        },
+        {
+          "skill": "TypeScript",
+          "count": 548
+        },
+        {
+          "skill": "Node.js",
+          "count": 260
+        },
+        {
+          "skill": "Java",
+          "count": 885
+        },
+        {
+          "skill": "Docker",
+          "count": 595
+        },
+        {
+          "skill": "Kubernetes",
+          "count": 773
+        },
+        {
+          "skill": "Linux",
+          "count": 778
+        },
+        {
+          "skill": "Git",
+          "count": 415
+        },
+        {
+          "skill": "JavaScript",
+          "count": 541
+        }
+      ]
+    },
+    {
+      "code": "es",
+      "job_count": 8353,
+      "avg_salary": 0,
+      "remote_percentage": 23.07,
+      "top_cities": [
+        {
+          "name": "Comunidad de Madrid, Espa\u00f1a",
+          "count": 1805
+        },
+        {
+          "name": "Catalu\u00f1a, Espa\u00f1a",
+          "count": 1603
+        },
+        {
+          "name": "Andaluc\u00eda, Espa\u00f1a",
+          "count": 268
+        },
+        {
+          "name": "Comunidad Valenciana, Espa\u00f1a",
+          "count": 222
+        },
+        {
+          "name": "Pa\u00eds Vasco, Espa\u00f1a",
+          "count": 123
+        },
+        {
+          "name": "Galicia, Espa\u00f1a",
+          "count": 93
+        }
+      ],
+      "skills_breakdown": [
+        {
+          "skill": "Python",
+          "count": 950
+        },
+        {
+          "skill": "SQL",
+          "count": 727
+        },
+        {
+          "skill": "Power BI",
+          "count": 251
+        },
+        {
+          "skill": "Tableau",
+          "count": 127
+        },
+        {
+          "skill": "Spark",
+          "count": 148
+        },
+        {
+          "skill": "dbt",
+          "count": 66
+        },
+        {
+          "skill": "Airflow",
+          "count": 72
+        },
+        {
+          "skill": "Looker",
+          "count": 1061
+        },
+        {
+          "skill": "Snowflake",
+          "count": 91
+        },
+        {
+          "skill": "Excel",
+          "count": 1032
+        },
+        {
+          "skill": "Azure",
+          "count": 668
+        },
+        {
+          "skill": "AWS",
+          "count": 766
+        },
+        {
+          "skill": "React",
+          "count": 256
+        },
+        {
+          "skill": "TypeScript",
+          "count": 221
+        },
+        {
+          "skill": "Node.js",
+          "count": 163
+        },
+        {
+          "skill": "Java",
+          "count": 353
+        },
+        {
+          "skill": "Docker",
+          "count": 354
+        },
+        {
+          "skill": "Kubernetes",
+          "count": 435
+        },
+        {
+          "skill": "Linux",
+          "count": 323
+        },
+        {
+          "skill": "Git",
+          "count": 309
+        },
+        {
+          "skill": "JavaScript",
+          "count": 264
+        }
+      ]
+    },
+    {
+      "code": "fr",
+      "job_count": 7882,
+      "avg_salary": 0,
+      "remote_percentage": 17.14,
+      "top_cities": [
+        {
+          "name": "Ile-de-France, France",
+          "count": 3528
+        },
+        {
+          "name": "Auvergne-Rh\u00f4ne-Alpes, France",
+          "count": 603
+        },
+        {
+          "name": "Occitanie, France",
+          "count": 347
+        },
+        {
+          "name": "Hauts-De-France, France",
+          "count": 245
+        },
+        {
+          "name": "Provence-Alpes-C\u00f4te d'Azur, France",
+          "count": 225
+        },
+        {
+          "name": "Nouvelle-Aquitaine, France",
+          "count": 205
+        }
+      ],
+      "skills_breakdown": [
+        {
+          "skill": "Python",
+          "count": 914
+        },
+        {
+          "skill": "SQL",
+          "count": 455
+        },
+        {
+          "skill": "Power BI",
+          "count": 208
+        },
+        {
+          "skill": "Tableau",
+          "count": 243
+        },
+        {
+          "skill": "Spark",
+          "count": 188
+        },
+        {
+          "skill": "dbt",
+          "count": 50
+        },
+        {
+          "skill": "Airflow",
+          "count": 66
+        },
+        {
+          "skill": "Looker",
+          "count": 49
+        },
+        {
+          "skill": "Snowflake",
+          "count": 76
+        },
+        {
+          "skill": "Excel",
+          "count": 812
+        },
+        {
+          "skill": "Azure",
+          "count": 407
+        },
+        {
+          "skill": "AWS",
+          "count": 520
+        },
+        {
+          "skill": "React",
+          "count": 219
+        },
+        {
+          "skill": "TypeScript",
+          "count": 192
+        },
+        {
+          "skill": "Node.js",
+          "count": 108
+        },
+        {
+          "skill": "Java",
+          "count": 306
+        },
+        {
+          "skill": "Docker",
+          "count": 312
+        },
+        {
+          "skill": "Kubernetes",
+          "count": 331
+        },
+        {
+          "skill": "Linux",
+          "count": 345
+        },
+        {
+          "skill": "Git",
+          "count": 213
+        },
+        {
+          "skill": "JavaScript",
+          "count": 182
+        }
+      ]
+    },
+    {
+      "code": "it",
+      "job_count": 7974,
+      "avg_salary": 0,
+      "remote_percentage": 16.22,
+      "top_cities": [
+        {
+          "name": "Lombardia, Italia",
+          "count": 2198
+        },
+        {
+          "name": "Lazio, Italia",
+          "count": 795
+        },
+        {
+          "name": "Piemonte, Italia",
+          "count": 689
+        },
+        {
+          "name": "Veneto, Italia",
+          "count": 480
+        },
+        {
+          "name": "Emilia-Romagna, Italia",
+          "count": 439
+        },
+        {
+          "name": "Toscana, Italia",
+          "count": 276
+        }
+      ],
+      "skills_breakdown": [
+        {
+          "skill": "Python",
+          "count": 585
+        },
+        {
+          "skill": "SQL",
+          "count": 636
+        },
+        {
+          "skill": "Power BI",
+          "count": 187
+        },
+        {
+          "skill": "Tableau",
+          "count": 98
+        },
+        {
+          "skill": "Spark",
+          "count": 144
+        },
+        {
+          "skill": "dbt",
+          "count": 4
+        },
+        {
+          "skill": "Airflow",
+          "count": 15
+        },
+        {
+          "skill": "Looker",
+          "count": 16
+        },
+        {
+          "skill": "Snowflake",
+          "count": 24
+        },
+        {
+          "skill": "Excel",
+          "count": 948
+        },
+        {
+          "skill": "Azure",
+          "count": 488
+        },
+        {
+          "skill": "AWS",
+          "count": 429
+        },
+        {
+          "skill": "React",
+          "count": 148
+        },
+        {
+          "skill": "TypeScript",
+          "count": 117
+        },
+        {
+          "skill": "Node.js",
+          "count": 77
+        },
+        {
+          "skill": "Java",
+          "count": 384
+        },
+        {
+          "skill": "Docker",
+          "count": 234
+        },
+        {
+          "skill": "Kubernetes",
+          "count": 202
+        },
+        {
+          "skill": "Linux",
+          "count": 349
+        },
+        {
+          "skill": "Git",
+          "count": 307
+        },
+        {
+          "skill": "JavaScript",
+          "count": 254
+        }
+      ]
+    },
+    {
+      "code": "nl",
+      "job_count": 4910,
+      "avg_salary": 0,
+      "remote_percentage": 15.42,
+      "top_cities": [
+        {
+          "name": "Noord-Holland, Nederland",
+          "count": 1095
+        },
+        {
+          "name": "Noord-Brabant, Nederland",
+          "count": 660
+        },
+        {
+          "name": "Zuid-Holland, Nederland",
+          "count": 449
+        },
+        {
+          "name": "Provincie Utrecht, Nederland",
+          "count": 238
+        },
+        {
+          "name": "Gelderland, Nederland",
+          "count": 175
+        },
+        {
+          "name": "Limburg, Nederland",
+          "count": 130
+        }
+      ],
+      "skills_breakdown": [
+        {
+          "skill": "Python",
+          "count": 501
+        },
+        {
+          "skill": "SQL",
+          "count": 237
+        },
+        {
+          "skill": "Power BI",
+          "count": 96
+        },
+        {
+          "skill": "Tableau",
+          "count": 46
+        },
+        {
+          "skill": "Spark",
+          "count": 81
+        },
+        {
+          "skill": "dbt",
+          "count": 18
+        },
+        {
+          "skill": "Airflow",
+          "count": 24
+        },
+        {
+          "skill": "Looker",
+          "count": 18
+        },
+        {
+          "skill": "Snowflake",
+          "count": 34
+        },
+        {
+          "skill": "Excel",
+          "count": 514
+        },
+        {
+          "skill": "Azure",
+          "count": 326
+        },
+        {
+          "skill": "AWS",
+          "count": 276
+        },
+        {
+          "skill": "React",
+          "count": 104
+        },
+        {
+          "skill": "TypeScript",
+          "count": 65
+        },
+        {
+          "skill": "Node.js",
+          "count": 43
+        },
+        {
+          "skill": "Java",
+          "count": 155
+        },
+        {
+          "skill": "Docker",
+          "count": 143
+        },
+        {
+          "skill": "Kubernetes",
+          "count": 188
+        },
+        {
+          "skill": "Linux",
+          "count": 200
+        },
+        {
+          "skill": "Git",
+          "count": 125
+        },
+        {
+          "skill": "JavaScript",
+          "count": 100
+        }
+      ]
+    },
+    {
+      "code": "arbeitnow",
+      "job_count": 1000,
+      "avg_salary": 0,
+      "remote_percentage": 14.3,
+      "top_cities": [],
+      "skills_breakdown": [
+        {
+          "skill": "Python",
+          "count": 7
+        },
+        {
+          "skill": "SQL",
+          "count": 0
+        },
+        {
+          "skill": "Power BI",
+          "count": 0
+        },
+        {
+          "skill": "Tableau",
+          "count": 0
+        },
+        {
+          "skill": "Spark",
+          "count": 1
+        },
+        {
+          "skill": "dbt",
+          "count": 0
+        },
+        {
+          "skill": "Airflow",
+          "count": 0
+        },
+        {
+          "skill": "Looker",
+          "count": 0
+        },
+        {
+          "skill": "Snowflake",
+          "count": 0
+        },
+        {
+          "skill": "Excel",
+          "count": 1
+        },
+        {
+          "skill": "Azure",
+          "count": 4
+        },
+        {
+          "skill": "AWS",
+          "count": 3
+        },
+        {
+          "skill": "React",
+          "count": 3
+        },
+        {
+          "skill": "TypeScript",
+          "count": 3
+        },
+        {
+          "skill": "Node.js",
+          "count": 1
+        },
+        {
+          "skill": "Java",
+          "count": 10
+        },
+        {
+          "skill": "Docker",
+          "count": 0
+        },
+        {
+          "skill": "Kubernetes",
+          "count": 0
+        },
+        {
+          "skill": "Linux",
+          "count": 2
+        },
+        {
+          "skill": "Git",
+          "count": 16
+        },
+        {
+          "skill": "JavaScript",
+          "count": 0
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Adzuna",
+      "url": "https://www.adzuna.com/",
+      "description": "Aggregated job market data and salary trends across Europe."
+    },
+    {
+      "name": "Arbeitnow",
+      "url": "https://www.arbeitnow.com/",
+      "description": "Tech-focused job board with a focus on European and remote roles."
+    }
+  ]
+}
