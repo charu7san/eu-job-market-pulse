@@ -3,6 +3,7 @@ import json
 import time
 import requests
 from datetime import datetime
+from typing import Optional
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -46,7 +47,7 @@ EUROSTAT_URL = (
 )
 
 
-def fetch_eurostat_unemployment(country_code: str) -> float | None:
+def fetch_eurostat_unemployment(country_code: str) -> Optional[float]:
     """Fetch latest monthly unemployment rate for a country from Eurostat.
     Returns a float (e.g. 3.1) or None if unavailable."""
     geo = country_code.upper()
