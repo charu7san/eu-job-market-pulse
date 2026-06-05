@@ -4,10 +4,12 @@ import {
   Globe, Briefcase, MapPin, CreditCard, Award, 
   Circle, ChevronRight, LayoutGrid 
 } from 'lucide-react';
+import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 const App = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [hoveredCountry, setHoveredCountry] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,6 +60,43 @@ const App = () => {
     ? Math.round((topSkill.count / data.global_metrics.total_listings) * 100) 
     : 0;
 
+  // Prepare country pie chart data
+  const countryColors = {
+    de: '#3b82f6', // blue
+    es: '#10b981', // emerald
+    fr: '#6366f1', // indigo
+    it: '#8b5cf6', // violet
+    nl: '#f59e0b', // amber
+    be: '#ec4899', // pink
+    at: '#ef4444', // red
+  };
+
+  const countryNames = {
+    de: 'Germany',
+    es: 'Spain',
+    fr: 'France',
+    it: 'Italy',
+    nl: 'Netherlands',
+    be: 'Belgium',
+    at: 'Austria',
+  };
+
+  const countryPieData = data.countries
+    .filter(c => c.code !== 'arbeitnow')
+    .map(c => ({
+      code: c.code,
+      name: countryNames[c.code] || c.code.toUpperCase(),
+      value: c.job_count,
+      color: countryColors[c.code] || '#9ca3af',
+    }))
+    .sort((a, b) => b.value - a.value);
+
+  const totalJobCount = countryPieData.reduce((acc, c) => acc + c.value, 0);
+
+  countryPieData.forEach(item => {
+    item.percentage = ((item.value / totalJobCount) * 100).toFixed(1);
+  });
+
   return (
     <div className="min-h-screen bg-[#f9fafb] text-[#1a1a1a] p-6 md:p-12 font-sans">
       <div className="max-w-6xl mx-auto">
@@ -107,39 +146,132 @@ const App = () => {
         </div>
 
         {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
           {/* Jobs by City */}
-          <div className="bg-white border border-[#e5e7eb] rounded-[24px] p-8 shadow-sm">
-            <h3 className="text-lg font-bold mb-8 text-[#111827]">Jobs by city — top 6</h3>
-            <div className="space-y-6">
-              {allCities.map((city, idx) => (
-                <div key={city.name} className="flex items-center gap-4 group relative">
-                  <div className="w-24 text-right text-sm font-medium text-[#4b5563] truncate cursor-help">
-                    {city.name}
-                    <div className="absolute left-0 -top-8 hidden group-hover:block bg-[#1f2937] text-white text-[10px] px-2 py-1 rounded shadow-lg whitespace-nowrap z-10">
+          <div className="bg-white border border-[#e5e7eb] rounded-[24px] p-8 shadow-sm flex flex-col justify-between h-full">
+            <div>
+              <h3 className="text-lg font-bold mb-8 text-[#111827]">Jobs by city — top 6</h3>
+              <div className="space-y-6">
+                {allCities.map((city, idx) => (
+                  <div key={city.name} className="flex items-center gap-4 group relative">
+                    <div className="w-24 text-right text-sm font-medium text-[#4b5563] truncate cursor-help">
                       {city.name}
+                      <div className="absolute left-0 -top-8 hidden group-hover:block bg-[#1f2937] text-white text-[10px] px-2 py-1 rounded shadow-lg whitespace-nowrap z-10">
+                        {city.name}
+                      </div>
+                    </div>
+                    <div className="flex-1 bg-[#f3f4f6] h-3 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full rounded-full transition-all duration-1000" 
+                        style={{ 
+                          width: `${(city.count / (allCities[0]?.count || 1)) * 100}%`,
+                          backgroundColor: idx === 0 ? '#3b82f6' : idx === 1 ? '#3b82f6' : idx < 4 ? '#10b981' : idx === 4 ? '#3b82f6' : '#f59e0b'
+                        }}
+                      ></div>
+                    </div>
+                    <div className="w-12 text-sm font-bold text-[#4b5563]">
+                      {city.count.toLocaleString('en-US')}
                     </div>
                   </div>
-                  <div className="flex-1 bg-[#f3f4f6] h-3 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full rounded-full transition-all duration-1000" 
-                      style={{ 
-                        width: `${(city.count / (allCities[0]?.count || 1)) * 100}%`,
-                        backgroundColor: idx === 0 ? '#3b82f6' : idx === 1 ? '#3b82f6' : idx < 4 ? '#10b981' : idx === 4 ? '#3b82f6' : '#f59e0b'
-                      }}
-                    ></div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Job Distribution by Country */}
+          <div className="bg-white border border-[#e5e7eb] rounded-[24px] p-8 shadow-sm flex flex-col justify-between h-full">
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <Globe className="w-5 h-5 text-[#3b82f6]" />
+                <h3 className="text-lg font-bold text-[#111827]">Jobs by country</h3>
+              </div>
+              
+              <div className="relative w-full h-[220px] flex items-center justify-center">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={countryPieData}
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={65}
+                      outerRadius={85}
+                      paddingAngle={3}
+                      dataKey="value"
+                      onMouseEnter={(e, index) => setHoveredCountry(countryPieData[index])}
+                      onMouseLeave={() => setHoveredCountry(null)}
+                    >
+                      {countryPieData.map((entry, index) => (
+                        <Cell 
+                          key={`cell-${index}`} 
+                          fill={entry.color} 
+                          fillOpacity={hoveredCountry ? (hoveredCountry.code === entry.code ? 1.0 : 0.35) : 0.95}
+                          className="transition-all duration-300 outline-none cursor-pointer"
+                        />
+                      ))}
+                    </Pie>
+                  </PieChart>
+                </ResponsiveContainer>
+                
+                <div className="absolute flex flex-col items-center justify-center text-center pointer-events-none select-none">
+                  {hoveredCountry ? (
+                    <>
+                      <span className="text-[10px] font-bold text-[#6b7280] uppercase tracking-wider mb-0.5">
+                        {hoveredCountry.name}
+                      </span>
+                      <span className="text-2xl font-extrabold text-[#111827] leading-none mb-1">
+                        {hoveredCountry.value.toLocaleString('en-US')}
+                      </span>
+                      <span className="text-xs font-bold text-[#3b82f6]">
+                        {hoveredCountry.percentage}%
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-[10px] font-bold text-[#6b7280] uppercase tracking-wider mb-0.5">
+                        Total Jobs
+                      </span>
+                      <span className="text-2xl font-extrabold text-[#111827] leading-none mb-1">
+                        {totalJobCount.toLocaleString('en-US')}
+                      </span>
+                      <span className="text-xs font-medium text-[#9ca3af]">
+                        7 Countries
+                      </span>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-x-3 gap-y-2 mt-4 border-t border-[#f3f4f6] pt-4">
+              {countryPieData.map((item) => (
+                <div 
+                  key={item.code} 
+                  className={`flex items-center justify-between text-[11px] p-1 rounded-lg transition-all duration-200 cursor-pointer ${
+                    hoveredCountry?.code === item.code ? 'bg-[#f3f4f6] scale-[1.02]' : 'hover:bg-[#f9fafb]'
+                  }`}
+                  onMouseEnter={() => setHoveredCountry(item)}
+                  onMouseLeave={() => setHoveredCountry(null)}
+                >
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    <span 
+                      className="w-2 h-2 rounded-full shrink-0" 
+                      style={{ backgroundColor: item.color }}
+                    ></span>
+                    <span className="font-semibold text-[#4b5563] truncate">
+                      {item.name}
+                    </span>
                   </div>
-                  <div className="w-12 text-sm font-bold text-[#4b5563]">
-                    {city.count.toLocaleString('en-US')}
-                  </div>
+                  <span className="font-bold text-[#111827] ml-1 shrink-0">
+                    {item.percentage}%
+                  </span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Skills and Remote */}
-          <div className="bg-white border border-[#e5e7eb] rounded-[24px] p-8 shadow-sm">
+          <div className="bg-white border border-[#e5e7eb] rounded-[24px] p-8 shadow-sm flex flex-col justify-between h-full">
             <div className="mb-10">
               <h3 className="text-lg font-bold mb-6 text-[#111827]">Most demanded skills</h3>
               <div className="flex flex-wrap gap-2">
