@@ -1,6 +1,10 @@
 # 🌍 EU Job Market Pulse
 
+[![Live Dashboard](https://img.shields.io/badge/Live-Dashboard-green?style=for-the-badge)](https://charu7san.github.io/eu-job-market-pulse/)
+
 An automated ETL pipeline and interactive dashboard visualizing the technology job market across Europe. Built with real-time data from the Adzuna API, this project tracks hiring trends, salary benchmarks, and skill demand in key EUR-zone markets.
+
+**🔗 Live Demo:** [https://charu7san.github.io/eu-job-market-pulse/](https://charu7san.github.io/eu-job-market-pulse/)
 
 
 ## 🚀 Overview
