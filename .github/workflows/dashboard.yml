@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -37,7 +39,8 @@ jobs:
           git config --global user.email "action@github.com"
           git add public/data/market_data.json
           git commit -m "Automated data update [skip ci]" || exit 0
-          git push
+          git push origin HEAD:${{ github.ref_name }}
+
 
       - name: Set up Node
         uses: actions/setup-node@v3

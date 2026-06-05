@@ -60,7 +60,7 @@ def fetch_data():
                 "content-type": "application/json"
             }
             
-            response = requests.get(search_url, params=params)
+            response = requests.get(search_url, params=params, timeout=10)
             response.raise_for_status()
             res_json = response.json()
             
@@ -79,7 +79,7 @@ def fetch_data():
 
             # Geodata
             geo_url = f"https://api.adzuna.com/v1/api/jobs/{country}/geodata"
-            geo_response = requests.get(geo_url, params=params)
+            geo_response = requests.get(geo_url, params=params, timeout=10)
             if geo_response.status_code == 200:
                 locations = geo_response.json().get("locations", [])
                 sorted_locations = sorted(locations, key=lambda x: x.get("count", 0), reverse=True)
@@ -91,7 +91,7 @@ def fetch_data():
             # Remote
             remote_params = params.copy()
             remote_params["what_phrase"] = "remote"
-            remote_response = requests.get(search_url, params=remote_params)
+            remote_response = requests.get(search_url, params=remote_params, timeout=10)
             if remote_response.status_code == 200:
                 remote_count = remote_response.json().get("count", 0)
                 if country_data["job_count"] > 0:
@@ -101,7 +101,7 @@ def fetch_data():
             for skill in SKILLS:
                 skill_params = params.copy()
                 skill_params["what_and"] = skill
-                skill_response = requests.get(search_url, params=skill_params)
+                skill_response = requests.get(search_url, params=skill_params, timeout=10)
                 if skill_response.status_code == 200:
                     skill_count = skill_response.json().get("count", 0)
                     country_data["skills_breakdown"].append({"skill": skill, "count": skill_count})
@@ -124,7 +124,7 @@ def fetch_data():
     while arbeit_url:
         try:
             print(f"  Fetching Arbeitnow page {current_page}...")
-            response = requests.get(arbeit_url)
+            response = requests.get(arbeit_url, timeout=10)
             if response.status_code != 200: break
             
             res_json = response.json()
