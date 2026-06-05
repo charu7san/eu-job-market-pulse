@@ -1,776 +1,776 @@
 {
-  "last_updated": "2026-06-05T18:05:40.668393Z",
+  "last_updated": "2026-06-05T19:06:26.409568Z",
   "global_metrics": {
-    "total_listings": 957,
-    "avg_eu_salary": 45300.0,
-    "avg_salary_transparency_pct": 100.0
+    "total_listings": 118466,
+    "avg_eu_salary": 62945.79,
+    "avg_salary_transparency_pct": 18.2
   },
   "countries": [
     {
       "code": "at",
-      "job_count": 0,
-      "avg_salary": 0,
-      "remote_percentage": 0,
-      "salary_transparency_pct": 0,
+      "job_count": 1255,
+      "avg_salary": 69545.62,
+      "remote_percentage": 15.94,
+      "salary_transparency_pct": 26.0,
       "unemployment_rate": 5.7,
       "top_cities": [],
       "skills_breakdown": [
         {
           "skill": "Python",
-          "count": 0
+          "count": 110
         },
         {
           "skill": "SQL",
-          "count": 0
+          "count": 133
         },
         {
           "skill": "Power BI",
-          "count": 0
+          "count": 13
         },
         {
           "skill": "Tableau",
-          "count": 0
+          "count": 3
         },
         {
           "skill": "Spark",
-          "count": 0
+          "count": 8
         },
         {
           "skill": "dbt",
-          "count": 0
+          "count": 4
         },
         {
           "skill": "Airflow",
-          "count": 0
+          "count": 5
         },
         {
           "skill": "Looker",
-          "count": 0
+          "count": 40
         },
         {
           "skill": "Snowflake",
-          "count": 0
+          "count": 7
         },
         {
           "skill": "Excel",
-          "count": 0
+          "count": 22
         },
         {
           "skill": "Azure",
-          "count": 0
+          "count": 122
         },
         {
           "skill": "AWS",
-          "count": 0
+          "count": 81
         },
         {
           "skill": "React",
-          "count": 0
+          "count": 60
         },
         {
           "skill": "TypeScript",
-          "count": 0
+          "count": 98
         },
         {
           "skill": "Node.js",
-          "count": 0
+          "count": 27
         },
         {
           "skill": "Java",
-          "count": 0
+          "count": 126
         },
         {
           "skill": "Docker",
-          "count": 0
+          "count": 88
         },
         {
           "skill": "Kubernetes",
-          "count": 0
+          "count": 91
         },
         {
           "skill": "Linux",
-          "count": 0
+          "count": 123
         },
         {
           "skill": "Git",
-          "count": 0
+          "count": 93
         },
         {
           "skill": "JavaScript",
-          "count": 0
+          "count": 80
         }
       ]
     },
     {
       "code": "be",
-      "job_count": 0,
+      "job_count": 1366,
       "avg_salary": 0,
-      "remote_percentage": 0,
-      "salary_transparency_pct": 0,
+      "remote_percentage": 15.3,
+      "salary_transparency_pct": 0.0,
       "unemployment_rate": 6.2,
       "top_cities": [],
       "skills_breakdown": [
         {
           "skill": "Python",
-          "count": 0
+          "count": 180
         },
         {
           "skill": "SQL",
-          "count": 0
+          "count": 190
         },
         {
           "skill": "Power BI",
-          "count": 0
+          "count": 36
         },
         {
           "skill": "Tableau",
-          "count": 0
+          "count": 5
         },
         {
           "skill": "Spark",
-          "count": 0
+          "count": 11
         },
         {
           "skill": "dbt",
-          "count": 0
+          "count": 11
         },
         {
           "skill": "Airflow",
-          "count": 0
+          "count": 5
         },
         {
           "skill": "Looker",
-          "count": 0
+          "count": 44
         },
         {
           "skill": "Snowflake",
-          "count": 0
+          "count": 6
         },
         {
           "skill": "Excel",
-          "count": 0
+          "count": 54
         },
         {
           "skill": "Azure",
-          "count": 0
+          "count": 214
         },
         {
           "skill": "AWS",
-          "count": 0
+          "count": 83
         },
         {
           "skill": "React",
-          "count": 0
+          "count": 63
         },
         {
           "skill": "TypeScript",
-          "count": 0
+          "count": 49
         },
         {
           "skill": "Node.js",
-          "count": 0
+          "count": 24
         },
         {
           "skill": "Java",
-          "count": 0
+          "count": 123
         },
         {
           "skill": "Docker",
-          "count": 0
+          "count": 76
         },
         {
           "skill": "Kubernetes",
-          "count": 0
+          "count": 71
         },
         {
           "skill": "Linux",
-          "count": 0
+          "count": 105
         },
         {
           "skill": "Git",
-          "count": 0
+          "count": 122
         },
         {
           "skill": "JavaScript",
-          "count": 0
+          "count": 62
         }
       ]
     },
     {
       "code": "de",
-      "job_count": 0,
+      "job_count": 27075,
       "avg_salary": 0,
-      "remote_percentage": 0,
-      "salary_transparency_pct": 0,
+      "remote_percentage": 13.03,
+      "salary_transparency_pct": 0.0,
       "unemployment_rate": 3.8,
       "top_cities": [],
       "skills_breakdown": [
         {
           "skill": "Python",
-          "count": 0
+          "count": 2095
         },
         {
           "skill": "SQL",
-          "count": 0
+          "count": 1526
         },
         {
           "skill": "Power BI",
-          "count": 0
+          "count": 207
         },
         {
           "skill": "Tableau",
-          "count": 0
+          "count": 65
         },
         {
           "skill": "Spark",
-          "count": 0
+          "count": 113
         },
         {
           "skill": "dbt",
-          "count": 0
+          "count": 48
         },
         {
           "skill": "Airflow",
-          "count": 0
+          "count": 64
         },
         {
           "skill": "Looker",
-          "count": 0
+          "count": 1454
         },
         {
           "skill": "Snowflake",
-          "count": 0
+          "count": 75
         },
         {
           "skill": "Excel",
-          "count": 0
+          "count": 618
         },
         {
           "skill": "Azure",
-          "count": 0
+          "count": 1802
         },
         {
           "skill": "AWS",
-          "count": 0
+          "count": 1328
         },
         {
           "skill": "React",
-          "count": 0
+          "count": 1167
         },
         {
           "skill": "TypeScript",
-          "count": 0
+          "count": 1072
         },
         {
           "skill": "Node.js",
-          "count": 0
+          "count": 428
         },
         {
           "skill": "Java",
-          "count": 0
+          "count": 1798
         },
         {
           "skill": "Docker",
-          "count": 0
+          "count": 1082
         },
         {
           "skill": "Kubernetes",
-          "count": 0
+          "count": 1091
         },
         {
           "skill": "Linux",
-          "count": 0
+          "count": 1444
         },
         {
           "skill": "Git",
-          "count": 0
+          "count": 876
         },
         {
           "skill": "JavaScript",
-          "count": 0
+          "count": 1358
         }
       ]
     },
     {
       "code": "es",
-      "job_count": 0,
-      "avg_salary": 0,
-      "remote_percentage": 0,
-      "salary_transparency_pct": 0,
+      "job_count": 2670,
+      "avg_salary": 43071.43,
+      "remote_percentage": 29.66,
+      "salary_transparency_pct": 14.0,
       "unemployment_rate": 10.3,
       "top_cities": [],
       "skills_breakdown": [
         {
           "skill": "Python",
-          "count": 0
+          "count": 511
         },
         {
           "skill": "SQL",
-          "count": 0
+          "count": 390
         },
         {
           "skill": "Power BI",
-          "count": 0
+          "count": 84
         },
         {
           "skill": "Tableau",
-          "count": 0
+          "count": 22
         },
         {
           "skill": "Spark",
-          "count": 0
+          "count": 81
         },
         {
           "skill": "dbt",
-          "count": 0
+          "count": 30
         },
         {
           "skill": "Airflow",
-          "count": 0
+          "count": 33
         },
         {
           "skill": "Looker",
-          "count": 0
+          "count": 161
         },
         {
           "skill": "Snowflake",
-          "count": 0
+          "count": 35
         },
         {
           "skill": "Excel",
-          "count": 0
+          "count": 109
         },
         {
           "skill": "Azure",
-          "count": 0
+          "count": 368
         },
         {
           "skill": "AWS",
-          "count": 0
+          "count": 417
         },
         {
           "skill": "React",
-          "count": 0
+          "count": 187
         },
         {
           "skill": "TypeScript",
-          "count": 0
+          "count": 175
         },
         {
           "skill": "Node.js",
-          "count": 0
+          "count": 110
         },
         {
           "skill": "Java",
-          "count": 0
+          "count": 296
         },
         {
           "skill": "Docker",
-          "count": 0
+          "count": 261
         },
         {
           "skill": "Kubernetes",
-          "count": 0
+          "count": 267
         },
         {
           "skill": "Linux",
-          "count": 0
+          "count": 186
         },
         {
           "skill": "Git",
-          "count": 0
+          "count": 257
         },
         {
           "skill": "JavaScript",
-          "count": 0
+          "count": 178
         }
       ]
     },
     {
       "code": "fr",
-      "job_count": 0,
-      "avg_salary": 0,
-      "remote_percentage": 0,
-      "salary_transparency_pct": 0,
+      "job_count": 27848,
+      "avg_salary": 42773.31,
+      "remote_percentage": 3.54,
+      "salary_transparency_pct": 42.0,
       "unemployment_rate": 8.2,
       "top_cities": [],
       "skills_breakdown": [
         {
           "skill": "Python",
-          "count": 0
+          "count": 2296
         },
         {
           "skill": "SQL",
-          "count": 0
+          "count": 2037
         },
         {
           "skill": "Power BI",
-          "count": 0
+          "count": 441
         },
         {
           "skill": "Tableau",
-          "count": 0
+          "count": 1099
         },
         {
           "skill": "Spark",
-          "count": 0
+          "count": 205
         },
         {
           "skill": "dbt",
-          "count": 0
+          "count": 118
         },
         {
           "skill": "Airflow",
-          "count": 0
+          "count": 136
         },
         {
           "skill": "Looker",
-          "count": 0
+          "count": 47
         },
         {
           "skill": "Snowflake",
-          "count": 0
+          "count": 176
         },
         {
           "skill": "Excel",
-          "count": 0
+          "count": 962
         },
         {
           "skill": "Azure",
-          "count": 0
+          "count": 1450
         },
         {
           "skill": "AWS",
-          "count": 0
+          "count": 1192
         },
         {
           "skill": "React",
-          "count": 0
+          "count": 891
         },
         {
           "skill": "TypeScript",
-          "count": 0
+          "count": 694
         },
         {
           "skill": "Node.js",
-          "count": 0
+          "count": 442
         },
         {
           "skill": "Java",
-          "count": 0
+          "count": 1942
         },
         {
           "skill": "Docker",
-          "count": 0
+          "count": 1451
         },
         {
           "skill": "Kubernetes",
-          "count": 0
+          "count": 1394
         },
         {
           "skill": "Linux",
-          "count": 0
+          "count": 1880
         },
         {
           "skill": "Git",
-          "count": 0
+          "count": 1261
         },
         {
           "skill": "JavaScript",
-          "count": 0
+          "count": 700
         }
       ]
     },
     {
       "code": "it",
-      "job_count": 0,
+      "job_count": 7679,
       "avg_salary": 0,
-      "remote_percentage": 0,
-      "salary_transparency_pct": 0,
+      "remote_percentage": 17.16,
+      "salary_transparency_pct": 0.0,
       "unemployment_rate": 5.1,
       "top_cities": [],
       "skills_breakdown": [
         {
           "skill": "Python",
-          "count": 0
+          "count": 791
         },
         {
           "skill": "SQL",
-          "count": 0
+          "count": 1027
         },
         {
           "skill": "Power BI",
-          "count": 0
+          "count": 129
         },
         {
           "skill": "Tableau",
-          "count": 0
+          "count": 40
         },
         {
           "skill": "Spark",
-          "count": 0
+          "count": 60
         },
         {
           "skill": "dbt",
-          "count": 0
+          "count": 13
         },
         {
           "skill": "Airflow",
-          "count": 0
+          "count": 27
         },
         {
           "skill": "Looker",
-          "count": 0
+          "count": 18
         },
         {
           "skill": "Snowflake",
-          "count": 0
+          "count": 25
         },
         {
           "skill": "Excel",
-          "count": 0
+          "count": 298
         },
         {
           "skill": "Azure",
-          "count": 0
+          "count": 638
         },
         {
           "skill": "AWS",
-          "count": 0
+          "count": 461
         },
         {
           "skill": "React",
-          "count": 0
+          "count": 288
         },
         {
           "skill": "TypeScript",
-          "count": 0
+          "count": 239
         },
         {
           "skill": "Node.js",
-          "count": 0
+          "count": 137
         },
         {
           "skill": "Java",
-          "count": 0
+          "count": 702
         },
         {
           "skill": "Docker",
-          "count": 0
+          "count": 469
         },
         {
           "skill": "Kubernetes",
-          "count": 0
+          "count": 391
         },
         {
           "skill": "Linux",
-          "count": 0
+          "count": 681
         },
         {
           "skill": "Git",
-          "count": 0
+          "count": 588
         },
         {
           "skill": "JavaScript",
-          "count": 0
+          "count": 402
         }
       ]
     },
     {
       "code": "nl",
-      "job_count": 1,
-      "avg_salary": 45300.0,
-      "remote_percentage": 0.0,
-      "salary_transparency_pct": 100.0,
+      "job_count": 4781,
+      "avg_salary": 54000.0,
+      "remote_percentage": 12.78,
+      "salary_transparency_pct": 8.0,
       "unemployment_rate": 3.9,
       "top_cities": [],
       "skills_breakdown": [
         {
           "skill": "Python",
-          "count": 0
+          "count": 938
         },
         {
           "skill": "SQL",
-          "count": 0
+          "count": 302
         },
         {
           "skill": "Power BI",
-          "count": 0
+          "count": 46
         },
         {
           "skill": "Tableau",
-          "count": 0
+          "count": 14
         },
         {
           "skill": "Spark",
-          "count": 0
+          "count": 57
         },
         {
           "skill": "dbt",
-          "count": 0
+          "count": 20
         },
         {
           "skill": "Airflow",
-          "count": 0
+          "count": 25
         },
         {
           "skill": "Looker",
-          "count": 0
+          "count": 3
         },
         {
           "skill": "Snowflake",
-          "count": 0
+          "count": 30
         },
         {
           "skill": "Excel",
-          "count": 0
+          "count": 95
         },
         {
           "skill": "Azure",
-          "count": 0
+          "count": 1398
         },
         {
           "skill": "AWS",
-          "count": 0
+          "count": 1164
         },
         {
           "skill": "React",
-          "count": 0
+          "count": 1602
         },
         {
           "skill": "TypeScript",
-          "count": 0
+          "count": 534
         },
         {
           "skill": "Node.js",
-          "count": 0
+          "count": 307
         },
         {
           "skill": "Java",
-          "count": 0
+          "count": 811
         },
         {
           "skill": "Docker",
-          "count": 0
+          "count": 173
         },
         {
           "skill": "Kubernetes",
-          "count": 0
+          "count": 186
         },
         {
           "skill": "Linux",
-          "count": 0
+          "count": 155
         },
         {
           "skill": "Git",
-          "count": 0
+          "count": 234
         },
         {
           "skill": "JavaScript",
-          "count": 0
+          "count": 1263
         }
       ]
     },
     {
       "code": "pl",
-      "job_count": 0,
-      "avg_salary": 0,
-      "remote_percentage": 0,
-      "salary_transparency_pct": 0,
+      "job_count": 44835,
+      "avg_salary": 105338.57,
+      "remote_percentage": 19.63,
+      "salary_transparency_pct": 56.0,
       "unemployment_rate": 3.0,
       "top_cities": [],
       "skills_breakdown": [
         {
           "skill": "Python",
-          "count": 0
+          "count": 8075
         },
         {
           "skill": "SQL",
-          "count": 0
+          "count": 8532
         },
         {
           "skill": "Power BI",
-          "count": 0
+          "count": 1366
         },
         {
           "skill": "Tableau",
-          "count": 0
+          "count": 422
         },
         {
           "skill": "Spark",
-          "count": 0
+          "count": 1209
         },
         {
           "skill": "dbt",
-          "count": 0
+          "count": 647
         },
         {
           "skill": "Airflow",
-          "count": 0
+          "count": 1002
         },
         {
           "skill": "Looker",
-          "count": 0
+          "count": 298
         },
         {
           "skill": "Snowflake",
-          "count": 0
+          "count": 1321
         },
         {
           "skill": "Excel",
-          "count": 0
+          "count": 2725
         },
         {
           "skill": "Azure",
-          "count": 0
+          "count": 6975
         },
         {
           "skill": "AWS",
-          "count": 0
+          "count": 6051
         },
         {
           "skill": "React",
-          "count": 0
+          "count": 2782
         },
         {
           "skill": "TypeScript",
-          "count": 0
+          "count": 2888
         },
         {
           "skill": "Node.js",
-          "count": 0
+          "count": 1340
         },
         {
           "skill": "Java",
-          "count": 0
+          "count": 5315
         },
         {
           "skill": "Docker",
-          "count": 0
+          "count": 4528
         },
         {
           "skill": "Kubernetes",
-          "count": 0
+          "count": 4992
         },
         {
           "skill": "Linux",
-          "count": 0
+          "count": 3406
         },
         {
           "skill": "Git",
-          "count": 0
+          "count": 4562
         },
         {
           "skill": "JavaScript",
-          "count": 0
+          "count": 3001
         }
       ]
     },
     {
       "code": "arbeitnow",
-      "job_count": 956,
+      "job_count": 957,
       "avg_salary": 0,
-      "remote_percentage": 13.39,
+      "remote_percentage": 13.48,
       "salary_transparency_pct": 0,
       "unemployment_rate": null,
       "top_cities": [],
@@ -813,7 +813,7 @@
         },
         {
           "skill": "Excel",
-          "count": 155
+          "count": 154
         },
         {
           "skill": "Azure",

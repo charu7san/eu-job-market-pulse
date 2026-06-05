@@ -125,7 +125,6 @@ def fetch_data():
             params = {
                 "app_id": ADZUNA_APP_ID,
                 "app_key": ADZUNA_APP_KEY,
-                "what": BASE_SEARCH,
                 "category": BASE_CATEGORY,   # restrict to IT/tech roles only
                 "content-type": "application/json",
                 "results_per_page": 50,
@@ -180,7 +179,7 @@ def fetch_data():
                 ]
 
             # Remote percentage
-            remote_params = {**params, "what_phrase": "remote"}
+            remote_params = {**params, "what": "remote"}
             remote_response = requests.get(search_url, params=remote_params, timeout=10)
             if remote_response.status_code == 200:
                 remote_count = remote_response.json().get("count", 0)
@@ -191,7 +190,7 @@ def fetch_data():
 
             # Skills breakdown
             for skill in SKILLS:
-                skill_params = {**params, "what_and": skill}
+                skill_params = {**params, "what": skill}
                 skill_response = requests.get(search_url, params=skill_params, timeout=10)
                 if skill_response.status_code == 200:
                     skill_count = skill_response.json().get("count", 0)
