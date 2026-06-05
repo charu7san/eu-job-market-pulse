@@ -15,6 +15,8 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [hoveredCountry, setHoveredCountry] = useState(null);
   const [hoveredSkill, setHoveredSkill] = useState(null);
+  const [sortKey, setSortKey] = useState('job_count');
+  const [sortDir, setSortDir] = useState('desc');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,7 +67,7 @@ const App = () => {
     ? Math.round((topSkill.count / data.global_metrics.total_listings) * 100) 
     : 0;
 
-  // Prepare country pie chart data
+  // Prepare country pie chart data — 14 EU/EEA countries
   const countryColors = {
     de: '#3b82f6', // blue
     es: '#10b981', // emerald
@@ -74,6 +76,13 @@ const App = () => {
     nl: '#f59e0b', // amber
     be: '#ec4899', // pink
     at: '#ef4444', // red
+    dk: '#14b8a6', // teal
+    se: '#0ea5e9', // sky
+    fi: '#a855f7', // purple
+    ie: '#f97316', // orange
+    no: '#84cc16', // lime
+    pl: '#e11d48', // rose
+    pt: '#06b6d4', // cyan
   };
 
   const countryNames = {
@@ -84,7 +93,39 @@ const App = () => {
     nl: 'Netherlands',
     be: 'Belgium',
     at: 'Austria',
+    dk: 'Denmark',
+    se: 'Sweden',
+    fi: 'Finland',
+    ie: 'Ireland',
+    no: 'Norway',
+    pl: 'Poland',
+    pt: 'Portugal',
   };
+
+  // Sort helper for table
+  const handleSort = (key) => {
+    if (sortKey === key) setSortDir(d => d === 'desc' ? 'asc' : 'desc');
+    else { setSortKey(key); setSortDir('desc'); }
+  };
+
+  const sortedCountries = [...geoCountries].sort((a, b) => {
+    const av = a[sortKey] ?? -1;
+    const bv = b[sortKey] ?? -1;
+    return sortDir === 'desc' ? bv - av : av - bv;
+  });
+
+  // Color scale helper for table cells
+  const cellColor = (val, low, mid) => {
+    if (val === null || val === undefined) return 'text-[#9ca3af]';
+    if (val >= mid) return 'text-[#10b981]';
+    if (val >= low) return 'text-[#f59e0b]';
+    return 'text-[#ef4444]';
+  };
+
+  // Salary transparency bar data
+  const transparencyData = [...geoCountries]
+    .filter(c => c.salary_transparency_pct > 0)
+    .sort((a, b) => b.salary_transparency_pct - a.salary_transparency_pct);
 
   const countryPieData = data.countries
     .filter(c => c.code !== 'arbeitnow')
@@ -133,7 +174,7 @@ const App = () => {
         </div>
 
         {/* Metric Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
           <StatCard 
             label="Total listings" 
             value={data.global_metrics.total_listings.toLocaleString('en-US')} 
@@ -141,9 +182,9 @@ const App = () => {
             subColor="text-[#10b981]"
           />
           <StatCard 
-            label="Cities tracked" 
-            value={totalCities.toLocaleString('en-US')} 
-            subValue={`across ${geoCountries.length} countries`}
+            label="Countries tracked" 
+            value={geoCountries.length.toLocaleString('en-US')} 
+            subValue={`${totalCities} cities monitored`}
             subColor="text-[#10b981]"
           />
           <StatCard 
@@ -159,6 +200,14 @@ const App = () => {
             value={topSkill ? topSkill.skill : "N/A"} 
             subValue={`in ${topSkillPercent}% of listings`}
             subColor="text-[#10b981]"
+          />
+          <StatCard
+            label="Salary transparency"
+            value={data.global_metrics.avg_salary_transparency_pct > 0
+              ? `${data.global_metrics.avg_salary_transparency_pct}%`
+              : 'N/A'}
+            subValue="EU Pay Transparency Directive"
+            subColor="text-[#f59e0b]"
           />
         </div>
 
@@ -252,7 +301,7 @@ const App = () => {
                         {totalJobCount.toLocaleString('en-US')}
                       </span>
                       <span className="text-xs font-medium text-[#9ca3af]">
-                        7 Countries
+                        {geoCountries.length} Countries
                       </span>
                     </>
                   )}
@@ -466,6 +515,131 @@ const App = () => {
                 </div>
               )}
             </div>
+          </div>
+
+        </div>
+
+        {/* Row 4: Pay Transparency + Country Deep-Dive */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+
+          {/* EU Pay Transparency Spotlight */}
+          <div className="bg-white border border-[#e5e7eb] rounded-[24px] p-8 shadow-sm flex flex-col h-full">
+            <div className="flex items-start gap-3 mb-5">
+              <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#fffbeb] flex items-center justify-center shrink-0">
+                <CreditCard className="w-4 h-4 text-[#f59e0b]" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#111827] leading-tight">Salary transparency</h3>
+                <p className="text-[10px] font-semibold text-[#f59e0b] uppercase tracking-wide mt-0.5">
+                  EU Pay Transparency Directive · In force June 2026
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-[#6b7280] mb-5 leading-relaxed">
+              % of tech job listings that include a salary figure — a key compliance signal for the new EU directive.
+            </p>
+            <div className="space-y-3 flex-1">
+              {transparencyData.length > 0 ? transparencyData.map(c => (
+                <div key={c.code}>
+                  <div className="flex items-center justify-between text-[11px] mb-1">
+                    <span className="font-semibold text-[#4b5563]">{countryNames[c.code] || c.code.toUpperCase()}</span>
+                    <span className={`font-bold ${
+                      c.salary_transparency_pct >= 40 ? 'text-[#10b981]' :
+                      c.salary_transparency_pct >= 20 ? 'text-[#f59e0b]' : 'text-[#ef4444]'
+                    }`}>{c.salary_transparency_pct}%</span>
+                  </div>
+                  <div className="w-full bg-[#f3f4f6] h-2 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all duration-700"
+                      style={{
+                        width: `${Math.min(c.salary_transparency_pct, 100)}%`,
+                        backgroundColor:
+                          c.salary_transparency_pct >= 40 ? '#10b981' :
+                          c.salary_transparency_pct >= 20 ? '#f59e0b' : '#ef4444'
+                      }}
+                    />
+                  </div>
+                </div>
+              )) : (
+                <div className="flex-1 flex items-center justify-center text-xs text-[#9ca3af]">
+                  Run the data script to populate transparency data
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Country Deep-Dive Sortable Table */}
+          <div className="bg-white border border-[#e5e7eb] rounded-[24px] p-8 shadow-sm lg:col-span-2 flex flex-col h-full">
+            <div className="flex items-center gap-2 mb-5">
+              <LayoutGrid className="w-5 h-5 text-[#6366f1]" />
+              <h3 className="text-lg font-bold text-[#111827]">Country deep-dive</h3>
+              <span className="ml-auto text-[10px] text-[#9ca3af] font-medium">Click a column to sort</span>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="border-b border-[#f3f4f6]">
+                    {[
+                      { key: 'code', label: 'Country' },
+                      { key: 'job_count', label: 'Jobs' },
+                      { key: 'remote_percentage', label: 'Remote %' },
+                      { key: 'salary_transparency_pct', label: 'Salary Transp.' },
+                      { key: 'unemployment_rate', label: 'Unemployment' },
+                    ].map(col => (
+                      <th
+                        key={col.key}
+                        onClick={() => handleSort(col.key)}
+                        className={`text-left py-2 px-2 font-semibold cursor-pointer select-none transition-colors ${
+                          sortKey === col.key ? 'text-[#3b82f6]' : 'text-[#6b7280] hover:text-[#374151]'
+                        }`}
+                      >
+                        {col.label}
+                        {sortKey === col.key && (
+                          <span className="ml-1 text-[10px]">{sortDir === 'desc' ? '↓' : '↑'}</span>
+                        )}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {sortedCountries.map((c, idx) => (
+                    <tr
+                      key={c.code}
+                      className={`border-b border-[#f9fafb] transition-colors hover:bg-[#f9fafb] ${
+                        idx % 2 === 0 ? '' : 'bg-[#fafafa]'
+                      }`}
+                    >
+                      <td className="py-2.5 px-2 font-bold text-[#111827] flex items-center gap-1.5">
+                        <span
+                          className="w-2 h-2 rounded-full inline-block shrink-0"
+                          style={{ backgroundColor: countryColors[c.code] || '#9ca3af' }}
+                        />
+                        {countryNames[c.code] || c.code.toUpperCase()}
+                      </td>
+                      <td className="py-2.5 px-2 font-semibold text-[#374151]">
+                        {c.job_count.toLocaleString('en-US')}
+                      </td>
+                      <td className={`py-2.5 px-2 font-bold ${cellColor(c.remote_percentage, 15, 22)}` }>
+                        {c.remote_percentage > 0 ? `${c.remote_percentage}%` : '—'}
+                      </td>
+                      <td className={`py-2.5 px-2 font-bold ${cellColor(c.salary_transparency_pct, 20, 40)}`}>
+                        {c.salary_transparency_pct > 0 ? `${c.salary_transparency_pct}%` : '—'}
+                      </td>
+                      <td className={`py-2.5 px-2 font-bold ${
+                        c.unemployment_rate === null ? 'text-[#9ca3af]' :
+                        c.unemployment_rate <= 5 ? 'text-[#10b981]' :
+                        c.unemployment_rate <= 9 ? 'text-[#f59e0b]' : 'text-[#ef4444]'
+                      }`}>
+                        {c.unemployment_rate !== null ? `${c.unemployment_rate}%` : '—'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-[10px] text-[#9ca3af]">
+              Unemployment data via Eurostat. Salary transparency = % of listings including a salary figure.
+            </p>
           </div>
 
         </div>
