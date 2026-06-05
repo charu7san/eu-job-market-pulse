@@ -4,12 +4,17 @@ import {
   Globe, Briefcase, MapPin, CreditCard, Award, 
   Circle, ChevronRight, LayoutGrid 
 } from 'lucide-react';
-import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { 
+  ResponsiveContainer, PieChart, Pie, Cell, 
+  RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip 
+} from 'recharts';
 
 const App = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [hoveredCountry, setHoveredCountry] = useState(null);
+  const [hoveredSkill, setHoveredSkill] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -96,6 +101,18 @@ const App = () => {
   countryPieData.forEach(item => {
     item.percentage = ((item.value / totalJobCount) * 100).toFixed(1);
   });
+
+  // Prepare remote radar chart data
+  const radarData = geoCountries.map(c => ({
+    subject: countryNames[c.code] || c.code.toUpperCase(),
+    value: c.remote_percentage,
+  }));
+
+  // Prepare skills bar chart data
+  const skillsChartData = allSkills.slice(0, 8).map(s => ({
+    name: s.skill,
+    count: s.count,
+  }));
 
   return (
     <div className="min-h-screen bg-[#f9fafb] text-[#1a1a1a] p-6 md:p-12 font-sans">
@@ -270,33 +287,184 @@ const App = () => {
             </div>
           </div>
 
-          {/* Skills and Remote */}
+          {/* Remote Work Profile */}
           <div className="bg-white border border-[#e5e7eb] rounded-[24px] p-8 shadow-sm flex flex-col justify-between h-full">
-            <div className="mb-10">
-              <h3 className="text-lg font-bold mb-6 text-[#111827]">Most demanded skills</h3>
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <MapPin className="w-5 h-5 text-[#10b981]" />
+                <h3 className="text-lg font-bold text-[#111827]">Remote work profile</h3>
+              </div>
+              
+              <div className="w-full h-[220px] flex items-center justify-center">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
+                    <PolarGrid stroke="#f3f4f6" />
+                    <PolarAngleAxis 
+                      dataKey="subject" 
+                      tick={{ fill: '#4b5563', fontSize: 10, fontWeight: 600 }}
+                    />
+                    <PolarRadiusAxis 
+                      angle={30} 
+                      domain={[0, 30]} 
+                      tick={{ fill: '#9ca3af', fontSize: 8 }} 
+                      axisLine={false}
+                    />
+                    <Radar
+                      name="Remote %" 
+                      dataKey="value" 
+                      stroke="#10b981" 
+                      fill="#10b981" 
+                      fillOpacity={0.15} 
+                    />
+                    <Tooltip 
+                      content={({ active, payload }) => {
+                        if (active && payload && payload.length) {
+                          const data = payload[0].payload;
+                          return (
+                            <div className="bg-white border border-[#e5e7eb] rounded-xl p-2.5 shadow-md text-[11px]">
+                              <p className="font-bold text-[#111827]">{data.subject}</p>
+                              <p className="font-extrabold text-[#10b981] mt-0.5">
+                                {data.value}% <span className="font-medium text-[#6b7280]">remote-friendly</span>
+                              </p>
+                            </div>
+                          );
+                        }
+                        return null;
+                      }}
+                    />
+                  </RadarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+            
+            <div className="mt-4 border-t border-[#f3f4f6] pt-4">
+              <div className="flex items-center justify-between text-[11px] text-[#6b7280] font-medium">
+                <span>Avg remote-friendliness</span>
+                <span className="font-bold text-[#111827]">
+                  {(radarData.reduce((acc, curr) => acc + curr.value, 0) / radarData.length).toFixed(1)}%
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Row 3: Skills In-Depth Analysis */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+          
+          {/* Tech Skills Demand Bar Chart */}
+          <div className="bg-white border border-[#e5e7eb] rounded-[24px] p-8 shadow-sm lg:col-span-2 flex flex-col justify-between h-full">
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <Briefcase className="w-5 h-5 text-[#3b82f6]" />
+                <h3 className="text-lg font-bold text-[#111827]">Tech skills demand — top 8</h3>
+              </div>
+              
+              <div className="w-full h-[260px] mt-4">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={skillsChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <defs>
+                      <linearGradient id="skillsGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.85} />
+                        <stop offset="100%" stopColor="#6366f1" stopOpacity={0.4} />
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
+                    <XAxis 
+                      dataKey="name" 
+                      tick={{ fill: '#4b5563', fontSize: 11, fontWeight: 600 }}
+                      axisLine={false}
+                      tickLine={false}
+                    />
+                    <YAxis 
+                      tick={{ fill: '#9ca3af', fontSize: 10 }}
+                      axisLine={false}
+                      tickLine={false}
+                    />
+                    <Tooltip 
+                      cursor={{ fill: '#f3f4f6', opacity: 0.4 }}
+                      content={({ active, payload }) => {
+                        if (active && payload && payload.length) {
+                          const data = payload[0].payload;
+                          return (
+                            <div className="bg-white border border-[#e5e7eb] rounded-xl p-3 shadow-md text-xs">
+                              <p className="font-bold text-[#111827]">{data.name}</p>
+                              <p className="font-extrabold text-[#3b82f6] mt-0.5">
+                                {data.count.toLocaleString()} <span className="font-medium text-[#6b7280]">listings</span>
+                              </p>
+                            </div>
+                          );
+                        }
+                        return null;
+                      }}
+                    />
+                    <Bar 
+                      dataKey="count" 
+                      fill="url(#skillsGradient)" 
+                      radius={[6, 6, 0, 0]} 
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          </div>
+
+          {/* Skill Highlights & Interactive Insights */}
+          <div className="bg-white border border-[#e5e7eb] rounded-[24px] p-8 shadow-sm flex flex-col justify-between h-full">
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <Award className="w-5 h-5 text-[#f59e0b]" />
+                <h3 className="text-lg font-bold text-[#111827]">Skill highlights</h3>
+              </div>
+              <p className="text-xs text-[#6b7280] mb-4">
+                Hover over a skill tag to explore its relative market share and count across the EU tech job market.
+              </p>
               <div className="flex flex-wrap gap-2">
-                {allSkills.slice(0, 15).map(s => (
-                  <span key={s.skill} className="px-4 py-1.5 bg-white border border-[#e5e7eb] rounded-full text-sm font-semibold text-[#4b5563] hover:border-blue-400 transition-colors cursor-default">
-                    {s.skill}
-                  </span>
-                ))}
+                {allSkills.slice(0, 15).map(s => {
+                  const isHovered = hoveredSkill?.skill === s.skill;
+                  return (
+                    <span 
+                      key={s.skill} 
+                      className={`px-3 py-1.5 border rounded-full text-xs font-semibold cursor-pointer transition-all duration-200 ${
+                        isHovered 
+                          ? 'border-[#3b82f6] bg-[#eff6ff] text-[#3b82f6] scale-[1.05]' 
+                          : 'border-[#e5e7eb] bg-white text-[#4b5563] hover:border-[#9ca3af]'
+                      }`}
+                      onMouseEnter={() => setHoveredSkill(s)}
+                      onMouseLeave={() => setHoveredSkill(null)}
+                    >
+                      {s.skill}
+                    </span>
+                  );
+                })}
               </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-bold mb-6 text-[#111827]">Remote-friendly %</h3>
-              <div className="space-y-4">
-                {geoCountries.sort((a,b) => b.remote_percentage - a.remote_percentage).slice(0, 4).map(c => (
-                  <div key={c.code} className="flex items-center justify-between py-2 border-b border-[#f3f4f6] last:border-0">
-                    <span className="text-sm font-semibold text-[#4b5563] capitalize">
-                      {new Intl.DisplayNames(['en'], { type: 'region' }).of(c.code.toUpperCase())}
-                    </span>
-                    <span className="text-sm font-bold text-[#10b981]">
-                      {c.remote_percentage}%
+            <div className="mt-6 border-t border-[#f3f4f6] pt-5 min-h-[96px] flex flex-col justify-center">
+              {hoveredSkill ? (
+                <div>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-xs font-bold text-[#111827]">{hoveredSkill.skill}</span>
+                    <span className="text-xs font-bold text-[#3b82f6]">
+                      {((hoveredSkill.count / data.global_metrics.total_listings) * 100).toFixed(1)}%
                     </span>
                   </div>
-                ))}
-              </div>
+                  <div className="w-full bg-[#f3f4f6] h-2 rounded-full overflow-hidden">
+                    <div 
+                      className="bg-gradient-to-r from-[#3b82f6] to-[#6366f1] h-full rounded-full transition-all duration-300"
+                      style={{ width: `${(hoveredSkill.count / data.global_metrics.total_listings) * 100}%` }}
+                    ></div>
+                  </div>
+                  <p className="text-[10px] text-[#6b7280] mt-2 leading-relaxed">
+                    Required in <span className="font-semibold text-[#4b5563]">{hoveredSkill.count.toLocaleString()}</span> of {data.global_metrics.total_listings.toLocaleString()} total listings.
+                  </p>
+                </div>
+              ) : (
+                <div className="flex flex-col items-center justify-center text-center text-[#9ca3af] py-2">
+                  <Award className="w-6 h-6 opacity-40 mb-1" />
+                  <span className="text-xs font-medium">Hover over a skill above</span>
+                </div>
+              )}
             </div>
           </div>
 
